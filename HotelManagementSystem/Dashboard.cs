@@ -59,15 +59,17 @@ namespace HotelManagementSystem
         private void buttonDashboard_Click(object sender, EventArgs e)
         {
             MovePanel(buttonDashboard);
-            userControl11.Hide();
-            userControlClient1.Hide();
+            userControl12.Hide();
+            userControlClient2.Hide();
+            userControlClientRooms1.Hide();
         }
 
         private void buttonClient_Click(object sender, EventArgs e)
         {
             MovePanel(buttonClient);
-            userControl11.Hide();
-            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            userControl12.Hide();
+            userControlClientRooms1.Hide();
+            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
             using (SqlConnection conn = new SqlConnection(connString))
@@ -85,8 +87,8 @@ namespace HotelManagementSystem
             }
             if (userrole == "Administrator")
             {
-                userControlClient1.clear();
-                userControlClient1.Show();
+                userControlClient2.clear();
+                userControlClient2.Show();
             }
             else
             {
@@ -97,22 +99,49 @@ namespace HotelManagementSystem
         private void buttonRooms_Click(object sender, EventArgs e)
         {
             MovePanel(buttonRooms);
-            userControl11.Hide();
-            userControlClient1.Hide();
+            userControl12.Hide();
+            userControlClient2.Hide();
+            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            string userrole = default;
+            string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                try
+                {
+                    conn.Open();
+                    userrole = (string)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error");
+                }
+            }
+            if (userrole == "Administrator")
+            {
+                userControlClientRooms1.clear();
+                userControlClientRooms1.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have access to view this page!", "Error");
+            }
         }
 
         private void buttonReservation_Click(object sender, EventArgs e)
         {
             MovePanel(buttonReservation);
-            userControl11.Hide();
-            userControlClient1.Hide();
+            userControl12.Hide();
+            userControlClient2.Hide();
+            userControlClientRooms1.Hide();
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
         {
             MovePanel(buttonSettings);
-            userControlClient1.Hide();
-            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            userControlClient2.Hide();
+            userControlClientRooms1.Hide();
+            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
             using (SqlConnection conn = new SqlConnection(connString))
@@ -130,8 +159,8 @@ namespace HotelManagementSystem
             }
             if(userrole == "Administrator")
             {
-                userControl11.Clear();
-                userControl11.Show();
+                userControl12.Clear();
+                userControl12.Show();
             }
             else
             {
