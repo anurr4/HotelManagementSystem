@@ -49,11 +49,12 @@
             this.buttonClient = new System.Windows.Forms.Button();
             this.buttonDashboard = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.userControlClientRooms1 = new HotelManagementSystem.UserControlClientRooms();
             this.userControlClient2 = new HotelManagementSystem.UserControlClient();
             this.userControl12 = new HotelManagementSystem.UserControl1();
             this.userControlClient1 = new HotelManagementSystem.UserControlClient();
             this.userControl11 = new HotelManagementSystem.UserControl1();
-            this.userControlClientRooms1 = new HotelManagementSystem.UserControlClientRooms();
+            this.userControlDashboard1 = new HotelManagementSystem.UserControlDashboard();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -202,6 +203,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.userControlDashboard1);
             this.panel5.Controls.Add(this.userControlClientRooms1);
             this.panel5.Controls.Add(this.userControlClient2);
             this.panel5.Controls.Add(this.userControl12);
@@ -326,6 +328,17 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
+            // userControlClientRooms1
+            // 
+            this.userControlClientRooms1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlClientRooms1.Font = new System.Drawing.Font("Bahnschrift SemiLight", 14.25F);
+            this.userControlClientRooms1.Location = new System.Drawing.Point(0, 0);
+            this.userControlClientRooms1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.userControlClientRooms1.Name = "userControlClientRooms1";
+            this.userControlClientRooms1.Size = new System.Drawing.Size(870, 510);
+            this.userControlClientRooms1.TabIndex = 2;
+            this.userControlClientRooms1.Visible = false;
+            // 
             // userControlClient2
             // 
             this.userControlClient2.BackColor = System.Drawing.Color.White;
@@ -374,16 +387,17 @@
             this.userControl11.TabIndex = 0;
             this.userControl11.Visible = false;
             // 
-            // userControlClientRooms1
+            // userControlDashboard1
             // 
-            this.userControlClientRooms1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlClientRooms1.Font = new System.Drawing.Font("Bahnschrift SemiLight", 14.25F);
-            this.userControlClientRooms1.Location = new System.Drawing.Point(0, 0);
-            this.userControlClientRooms1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.userControlClientRooms1.Name = "userControlClientRooms1";
-            this.userControlClientRooms1.Size = new System.Drawing.Size(870, 510);
-            this.userControlClientRooms1.TabIndex = 2;
-            this.userControlClientRooms1.Visible = false;
+            this.userControlDashboard1.BackColor = System.Drawing.Color.White;
+            this.userControlDashboard1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlDashboard1.Font = new System.Drawing.Font("Bahnschrift SemiLight", 14.25F);
+            this.userControlDashboard1.Location = new System.Drawing.Point(0, 0);
+            this.userControlDashboard1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.userControlDashboard1.Name = "userControlDashboard1";
+            this.userControlDashboard1.Size = new System.Drawing.Size(870, 510);
+            this.userControlDashboard1.TabIndex = 0;
+            this.userControlDashboard1.Visible = false;
             // 
             // Dashboard
             // 
@@ -441,6 +455,7 @@
         private UserControl1 userControl12;
         private UserControlClient userControlClient2;
         private UserControlClientRooms userControlClientRooms1;
+        private UserControlDashboard userControlDashboard1;
     }
 }
 

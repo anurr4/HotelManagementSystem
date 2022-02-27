@@ -54,6 +54,7 @@ namespace HotelManagementSystem
         {
             timer1.Start();
             labelUsername.Text = username;
+            userControlDashboard1.Show();
         }
 
         private void buttonDashboard_Click(object sender, EventArgs e)
@@ -62,6 +63,7 @@ namespace HotelManagementSystem
             userControl12.Hide();
             userControlClient2.Hide();
             userControlClientRooms1.Hide();
+            userControlDashboard1.Show();
         }
 
         private void buttonClient_Click(object sender, EventArgs e)
@@ -69,6 +71,7 @@ namespace HotelManagementSystem
             MovePanel(buttonClient);
             userControl12.Hide();
             userControlClientRooms1.Hide();
+            userControlDashboard1.Hide();
             string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
@@ -101,6 +104,7 @@ namespace HotelManagementSystem
             MovePanel(buttonRooms);
             userControl12.Hide();
             userControlClient2.Hide();
+            userControlDashboard1.Hide();
             string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
@@ -134,6 +138,7 @@ namespace HotelManagementSystem
             userControl12.Hide();
             userControlClient2.Hide();
             userControlClientRooms1.Hide();
+            userControlDashboard1.Hide();
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
@@ -141,6 +146,7 @@ namespace HotelManagementSystem
             MovePanel(buttonSettings);
             userControlClient2.Hide();
             userControlClientRooms1.Hide();
+            userControlDashboard1.Hide();
             string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";

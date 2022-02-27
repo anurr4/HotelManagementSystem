@@ -164,5 +164,7 @@ namespace HotelManagementSystem
             adapter.Fill(dt);
             dataGridViewClient.DataSource = dt;
         }
+
+        
     }
 }
