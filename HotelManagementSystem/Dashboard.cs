@@ -63,6 +63,7 @@ namespace HotelManagementSystem
             userControl12.Hide();
             userControlClient2.Hide();
             userControlClientRooms1.Hide();
+            userControlReservation1.Hide();
             userControlDashboard1.Show();
         }
 
@@ -72,7 +73,8 @@ namespace HotelManagementSystem
             userControl12.Hide();
             userControlClientRooms1.Hide();
             userControlDashboard1.Hide();
-            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            userControlReservation1.Hide();
+            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
             using (SqlConnection conn = new SqlConnection(connString))
@@ -105,7 +107,8 @@ namespace HotelManagementSystem
             userControl12.Hide();
             userControlClient2.Hide();
             userControlDashboard1.Hide();
-            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            userControlReservation1.Hide();
+            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
             using (SqlConnection conn = new SqlConnection(connString))
@@ -139,6 +142,7 @@ namespace HotelManagementSystem
             userControlClient2.Hide();
             userControlClientRooms1.Hide();
             userControlDashboard1.Hide();
+            userControlReservation1.Show();
         }
 
         private void buttonSettings_Click(object sender, EventArgs e)
@@ -147,7 +151,8 @@ namespace HotelManagementSystem
             userControlClient2.Hide();
             userControlClientRooms1.Hide();
             userControlDashboard1.Hide();
-            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            userControlReservation1.Hide();
+            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string userrole = default;
             string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + username + "';";
             using (SqlConnection conn = new SqlConnection(connString))

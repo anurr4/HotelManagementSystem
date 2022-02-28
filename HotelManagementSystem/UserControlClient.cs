@@ -44,7 +44,7 @@ namespace HotelManagementSystem
             }
             else
             {
-                conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                 conn.Open();
                 String st = "INSERT INTO ClientInfo(ClientN, ClientLN, ClientPhone, ClientAddress)VALUES('"+textBoxFName.Text+"', '"+textBoxLName.Text+"', '"+textBoxPhone.Text+"', '"+textBoxAddress.Text+"')";
                 SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -92,7 +92,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                    conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                     conn.Open();
                     String st = "UPDATE ClientInfo SET ClientN = '" + textBoxFName1.Text + "', ClientLN = '" + textBoxLName1.Text + "', ClientPhone = '" + textBoxPhone1.Text + "', ClientAddress ='" + textBoxAddress1.Text + "' WHERE ClientID = " + ID + ";";
                     SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -119,7 +119,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                    conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                     conn.Open();
                     String st = "DELETE FROM ClientInfo WHERE ClientID = " + ID + ";";
                     SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -156,7 +156,7 @@ namespace HotelManagementSystem
 
         private void tabPageSearch_Enter(object sender, EventArgs e)
         {
-            conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
             conn.Open();
             adapter = new SqlDataAdapter("Select * From ClientInfo", conn);
             adapter.SelectCommand.ExecuteNonQuery();

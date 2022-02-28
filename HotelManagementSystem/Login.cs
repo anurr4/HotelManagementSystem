@@ -18,13 +18,17 @@ namespace HotelManagementSystem
         {
             InitializeComponent();
         }
+        public string Username()
+        {
+            return textBoxEmail.Text;
+        }
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             string username, pass;
             username = textBoxEmail.Text;
             pass = textBoxPassword.Text;
             
-            conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
             conn.Open();
 
             try

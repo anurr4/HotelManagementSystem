@@ -30,6 +30,9 @@
         {
             this.tabControlRooms = new System.Windows.Forms.TabControl();
             this.tabPageAddRoom = new System.Windows.Forms.TabPage();
+            this.radioButtonNo = new System.Windows.Forms.RadioButton();
+            this.radioButtonYes = new System.Windows.Forms.RadioButton();
+            this.comboBoxRoomType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
@@ -37,18 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPageSearch = new System.Windows.Forms.TabPage();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
-            this.textBoxSearchRoom = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tabPageEdit = new System.Windows.Forms.TabPage();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonApply = new System.Windows.Forms.Button();
-            this.comboBoxRoomType = new System.Windows.Forms.ComboBox();
-            this.radioButtonYes = new System.Windows.Forms.RadioButton();
-            this.radioButtonNo = new System.Windows.Forms.RadioButton();
             this.column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxSearchRoom = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tabPageEdit = new System.Windows.Forms.TabPage();
             this.radioButtonNo1 = new System.Windows.Forms.RadioButton();
             this.radioButtonYes1 = new System.Windows.Forms.RadioButton();
             this.comboBoxType1 = new System.Windows.Forms.ComboBox();
@@ -56,6 +54,8 @@
             this.textBoxPhone1 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonApply = new System.Windows.Forms.Button();
             this.tabControlRooms.SuspendLayout();
             this.tabPageAddRoom.SuspendLayout();
             this.tabPageSearch.SuspendLayout();
@@ -93,6 +93,41 @@
             this.tabPageAddRoom.Text = "Add Room";
             this.tabPageAddRoom.UseVisualStyleBackColor = true;
             this.tabPageAddRoom.Leave += new System.EventHandler(this.tabPageAddRoom_Leave);
+            // 
+            // radioButtonNo
+            // 
+            this.radioButtonNo.AutoSize = true;
+            this.radioButtonNo.Location = new System.Drawing.Point(206, 231);
+            this.radioButtonNo.Name = "radioButtonNo";
+            this.radioButtonNo.Size = new System.Drawing.Size(51, 27);
+            this.radioButtonNo.TabIndex = 18;
+            this.radioButtonNo.TabStop = true;
+            this.radioButtonNo.Text = "No";
+            this.radioButtonNo.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonYes
+            // 
+            this.radioButtonYes.AutoSize = true;
+            this.radioButtonYes.Location = new System.Drawing.Point(206, 193);
+            this.radioButtonYes.Name = "radioButtonYes";
+            this.radioButtonYes.Size = new System.Drawing.Size(57, 27);
+            this.radioButtonYes.TabIndex = 17;
+            this.radioButtonYes.TabStop = true;
+            this.radioButtonYes.Text = "Yes";
+            this.radioButtonYes.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxRoomType
+            // 
+            this.comboBoxRoomType.FormattingEnabled = true;
+            this.comboBoxRoomType.Items.AddRange(new object[] {
+            "Single",
+            "Double",
+            "Family",
+            "Suite"});
+            this.comboBoxRoomType.Location = new System.Drawing.Point(73, 111);
+            this.comboBoxRoomType.Name = "comboBoxRoomType";
+            this.comboBoxRoomType.Size = new System.Drawing.Size(266, 31);
+            this.comboBoxRoomType.TabIndex = 16;
             // 
             // label3
             // 
@@ -182,6 +217,38 @@
             this.dataGridViewRoom.TabIndex = 7;
             this.dataGridViewRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoom_CellClick);
             // 
+            // column1
+            // 
+            this.column1.DataPropertyName = "RoomNumber";
+            this.column1.FillWeight = 74.62628F;
+            this.column1.HeaderText = "Room No.";
+            this.column1.Name = "column1";
+            this.column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "RoomType";
+            this.Column2.FillWeight = 128.3571F;
+            this.Column2.HeaderText = "Room Type";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "RoomPhone";
+            this.Column3.FillWeight = 128.3571F;
+            this.Column3.HeaderText = "Room Phone";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "RoomFree";
+            this.Column4.FillWeight = 59.52225F;
+            this.Column4.HeaderText = "Free";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
             // textBoxSearchRoom
             // 
             this.textBoxSearchRoom.Location = new System.Drawing.Point(166, 62);
@@ -219,105 +286,6 @@
             this.tabPageEdit.Text = "Edit Room";
             this.tabPageEdit.UseVisualStyleBackColor = true;
             this.tabPageEdit.Leave += new System.EventHandler(this.tabPageEdit_Leave);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
-            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F);
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Location = new System.Drawing.Point(431, 320);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(147, 47);
-            this.buttonDelete.TabIndex = 22;
-            this.buttonDelete.Text = "Delete Room";
-            this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonApply
-            // 
-            this.buttonApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(214)))), ((int)(((byte)(95)))));
-            this.buttonApply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonApply.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonApply.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F);
-            this.buttonApply.ForeColor = System.Drawing.Color.White;
-            this.buttonApply.Location = new System.Drawing.Point(253, 320);
-            this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(147, 47);
-            this.buttonApply.TabIndex = 19;
-            this.buttonApply.Text = "Apply Changes";
-            this.buttonApply.UseVisualStyleBackColor = false;
-            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
-            // 
-            // comboBoxRoomType
-            // 
-            this.comboBoxRoomType.FormattingEnabled = true;
-            this.comboBoxRoomType.Items.AddRange(new object[] {
-            "Single",
-            "Double",
-            "Family",
-            "Suite"});
-            this.comboBoxRoomType.Location = new System.Drawing.Point(73, 111);
-            this.comboBoxRoomType.Name = "comboBoxRoomType";
-            this.comboBoxRoomType.Size = new System.Drawing.Size(266, 31);
-            this.comboBoxRoomType.TabIndex = 16;
-            // 
-            // radioButtonYes
-            // 
-            this.radioButtonYes.AutoSize = true;
-            this.radioButtonYes.Location = new System.Drawing.Point(206, 193);
-            this.radioButtonYes.Name = "radioButtonYes";
-            this.radioButtonYes.Size = new System.Drawing.Size(57, 27);
-            this.radioButtonYes.TabIndex = 17;
-            this.radioButtonYes.TabStop = true;
-            this.radioButtonYes.Text = "Yes";
-            this.radioButtonYes.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonNo
-            // 
-            this.radioButtonNo.AutoSize = true;
-            this.radioButtonNo.Location = new System.Drawing.Point(206, 231);
-            this.radioButtonNo.Name = "radioButtonNo";
-            this.radioButtonNo.Size = new System.Drawing.Size(51, 27);
-            this.radioButtonNo.TabIndex = 18;
-            this.radioButtonNo.TabStop = true;
-            this.radioButtonNo.Text = "No";
-            this.radioButtonNo.UseVisualStyleBackColor = true;
-            // 
-            // column1
-            // 
-            this.column1.DataPropertyName = "RoomNumber";
-            this.column1.FillWeight = 74.62628F;
-            this.column1.HeaderText = "Room No.";
-            this.column1.Name = "column1";
-            this.column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "RoomType";
-            this.Column2.FillWeight = 128.3571F;
-            this.Column2.HeaderText = "Room Type";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "RoomPhone";
-            this.Column3.FillWeight = 128.3571F;
-            this.Column3.HeaderText = "Room Phone";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "RoomFree";
-            this.Column4.FillWeight = 59.52225F;
-            this.Column4.HeaderText = "Free";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             // 
             // radioButtonNo1
             // 
@@ -390,6 +358,38 @@
             this.label7.Size = new System.Drawing.Size(100, 23);
             this.label7.TabIndex = 23;
             this.label7.Text = "Room Type";
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F);
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Location = new System.Drawing.Point(431, 320);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(147, 47);
+            this.buttonDelete.TabIndex = 22;
+            this.buttonDelete.Text = "Delete Room";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonApply
+            // 
+            this.buttonApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(214)))), ((int)(((byte)(95)))));
+            this.buttonApply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonApply.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonApply.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonApply.Font = new System.Drawing.Font("Bahnschrift SemiBold", 14.25F);
+            this.buttonApply.ForeColor = System.Drawing.Color.White;
+            this.buttonApply.Location = new System.Drawing.Point(253, 320);
+            this.buttonApply.Name = "buttonApply";
+            this.buttonApply.Size = new System.Drawing.Size(147, 47);
+            this.buttonApply.TabIndex = 19;
+            this.buttonApply.Text = "Apply Changes";
+            this.buttonApply.UseVisualStyleBackColor = false;
+            this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
             // 
             // UserControlClientRooms
             // 

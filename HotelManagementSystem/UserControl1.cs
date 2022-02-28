@@ -60,7 +60,7 @@ namespace HotelManagementSystem
             }
             else
             {
-                conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                 conn.Open();
                 String st = "INSERT INTO UserInfo(UserName, email, pass)VALUES('" + textBoxUsername.Text + "', '" + textBoxEmail.Text + "','"+textBoxPassword.Text+"')";
                 SqlCommand sqlcom = new SqlCommand(st, conn );
@@ -78,7 +78,7 @@ namespace HotelManagementSystem
 
         private void tabPageSearchUser_Enter(object sender, EventArgs e)
         {
-            conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
             conn.Open();
             adapter = new SqlDataAdapter("Select * From UserInfo", conn);
             adapter.SelectCommand.ExecuteNonQuery();
@@ -110,7 +110,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                    conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                     conn.Open();
                     int where = Convert.ToInt32(ID) + 1;
                     String st = "UPDATE UserInfo SET UserName = '"+textBoxUsername1.Text+"', email = '"+textBoxEmail1.Text+"', pass = '"+textBoxPassword1.Text+"', UserRole='"+comboBoxRoles.Text+"' WHERE UserID = "+ID+";";
@@ -138,7 +138,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                    conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                     conn.Open();
                     String st = "DELETE FROM UserInfo WHERE UserID = "+ID+";";
                     SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -157,7 +157,7 @@ namespace HotelManagementSystem
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
             conn.Open();
             adapter = new SqlDataAdapter("Select * From UserInfo WHERE UserName LIKE '%"+textBox3.Text+"%';", conn);
             adapter.SelectCommand.ExecuteNonQuery();

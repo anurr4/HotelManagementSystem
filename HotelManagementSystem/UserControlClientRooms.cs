@@ -43,7 +43,7 @@ namespace HotelManagementSystem
             }
             else
             {
-                conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                 conn.Open();
                 String st = "INSERT INTO RoomTable VALUES('" + comboBoxRoomType.SelectedItem.ToString() + "', '" + textBoxPhone.Text + "', '"+Free+"');";
                 SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -67,7 +67,7 @@ namespace HotelManagementSystem
 
         private void tabPageSearch_Enter(object sender, EventArgs e)
         {
-            conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+            conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
             conn.Open();
             adapter = new SqlDataAdapter("Select * From RoomTable", conn);
             adapter.SelectCommand.ExecuteNonQuery();
@@ -120,7 +120,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                    conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                     conn.Open();
                     String st = "UPDATE RoomTable SET RoomType = '" + comboBoxType1.SelectedItem.ToString() + "', RoomPhone = '" + textBoxPhone1.Text + "', RoomFree = '"+ Free +"'  WHERE RoomNumber = "+No+";";
                     SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -134,6 +134,10 @@ namespace HotelManagementSystem
                         MessageBox.Show(ex.Message);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row from the table first!", "Error!");
             }
             
         }
@@ -151,7 +155,7 @@ namespace HotelManagementSystem
                 }
                 else
                 {
-                    conn = new SqlConnection(@"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True");
+                    conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                     conn.Open();
                     String st = "DELETE FROM RoomTable WHERE RoomNumber = " + No + ";";
                     SqlCommand sqlcom = new SqlCommand(st, conn);
@@ -165,6 +169,10 @@ namespace HotelManagementSystem
                         MessageBox.Show(ex.Message);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row from the table first!","Error");
             }
             
         }

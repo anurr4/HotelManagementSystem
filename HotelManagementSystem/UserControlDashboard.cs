@@ -19,10 +19,10 @@ namespace HotelManagementSystem
         {
             InitializeComponent();
         }
-
+        //DESKTOP-IUGPBCH
         private void User()
         {
-            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string select = "SELECT COUNT (*) FROM UserInfo";
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -41,7 +41,7 @@ namespace HotelManagementSystem
         }
         private void Client()
         {
-            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string select = "SELECT COUNT (*) FROM ClientInfo";
             using (SqlConnection conn = new SqlConnection(connString))
             {
@@ -60,7 +60,7 @@ namespace HotelManagementSystem
         }
         private void Rooms()
         {
-            string connString = @"Data Source=DESKTOP-IUGPBCH;Initial Catalog=HotelManagementSystem;Integrated Security=True";
+            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
             string select = "SELECT COUNT (*) FROM RoomTable";
             using (SqlConnection conn = new SqlConnection(connString))
             {
