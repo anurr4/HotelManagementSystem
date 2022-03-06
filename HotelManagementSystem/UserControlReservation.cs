@@ -13,11 +13,9 @@ namespace HotelManagementSystem
     public partial class UserControlReservation : UserControl
     {
         SqlConnection conn;
-        SqlCommand cmd;
         SqlDataAdapter adapter;
         DataTable dt;
-        private string RID = "",No;
-        Login lg = new Login();
+        private string RID = "";
         public UserControlReservation()
         {
             InitializeComponent();
@@ -56,7 +54,7 @@ namespace HotelManagementSystem
             {
                 conn = new SqlConnection(@"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True");
                 conn.Open();
-                String st = "INSERT INTO ReservationTable VALUES('" + comboBoxRoomType.SelectedItem.ToString() + "', '" + comboBoxRoomNumber.SelectedItem.ToString()+ "', '" + textBoxClientID.Text + "', '"+dateTimePickerIN.Text+"', '"+dateTimePickerOUT.Text+"');";
+                String st = "INSERT INTO ReservationTable(ReservationRoomType,ReservationRoomNumber,ReservationClientID,ReservationIN,ReservationOUT) VALUES('" + comboBoxRoomType.SelectedItem.ToString() + "', '" + comboBoxRoomNumber.SelectedItem.ToString()+ "', '" + Convert.ToInt32(textBoxClientID.Text) + "', '"+dateTimePickerIN.Text+"', '"+dateTimePickerOUT.Text+"');";
                 SqlCommand sqlcom = new SqlCommand(st, conn);
                 try
                 {
@@ -102,9 +100,10 @@ namespace HotelManagementSystem
                 DataGridViewRow row = dataGridViewReservation.Rows[e.RowIndex];
                 RID = row.Cells[0].Value.ToString();
                 comboBoxRoomType1.SelectedItem = row.Cells[1].Value.ToString();
-                No = row.Cells[3].Value.ToString();
+                comboBoxRoomNumber1.SelectedItem = row.Cells[2].Value.ToString();
+                textBoxClientID1.Text = row.Cells[3].Value.ToString();
                 dateTimePickerIN1.Text = row.Cells[4].Value.ToString();
-                dateTimePickerOUT.Text = row.Cells[5].Value.ToString();
+                dateTimePickerOUT1.Text = row.Cells[5].Value.ToString();
             }
         }
 
@@ -112,7 +111,7 @@ namespace HotelManagementSystem
         {
             if(RID != "")
             {
-                if (comboBoxRoomType1.SelectedIndex == -1 || comboBoxRoomNumber1.SelectedIndex == -1 || string.IsNullOrEmpty(textBoxClientID1.Text))
+                if (string.IsNullOrEmpty(comboBoxRoomType1.Text) || string.IsNullOrEmpty(comboBoxRoomNumber1.Text) || string.IsNullOrEmpty(textBoxClientID1.Text))
                 {
                     MessageBox.Show("Please fill in the reservation information you wish to edit!", "Error");
                 }
@@ -144,7 +143,7 @@ namespace HotelManagementSystem
         {
             if (RID != "")
             {
-                if (comboBoxRoomType1.SelectedIndex == 0 || comboBoxRoomNumber1.SelectedIndex == 0 || string.IsNullOrEmpty(textBoxClientID1.Text))
+                if (comboBoxRoomType1.SelectedIndex == -1 || comboBoxRoomNumber1.SelectedIndex == -1 || string.IsNullOrEmpty(textBoxClientID1.Text))
                 {
                     MessageBox.Show("Please fill in the reservation information you wish to cancel!", "Error");
                 }
@@ -177,34 +176,6 @@ namespace HotelManagementSystem
         }
 
 
-        private void tabPageEdit_Enter(object sender, EventArgs e)
-        {
-            string connString = @"Data Source=Anurra;Initial Catalog=HotelManagementSystem;Integrated Security=True";
-            string userrole = default;
-            string sql = "SELECT UserRole FROM UserInfo WHERE UserName ='" + lg.Username() + "';";
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                try
-                {
-                    conn.Open();
-                    userrole = (string)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error");
-                }
-            }
-            if (userrole == "Administrator")
-            {
-                tabPageEdit.Show();
-            }
-            else
-            {
-                MessageBox.Show("You do not have access to view this page!", "Error");
-                tabPageEdit.Hide();
-            }
-        }
 
         private void comboBoxRoomType1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -338,7 +338,6 @@
             this.tabPageEdit.TabIndex = 2;
             this.tabPageEdit.Text = "Edit Reservation";
             this.tabPageEdit.UseVisualStyleBackColor = true;
-            this.tabPageEdit.Enter += new System.EventHandler(this.tabPageEdit_Enter);
             this.tabPageEdit.Leave += new System.EventHandler(this.tabPageEdit_Leave);
             // 
             // dateTimePickerOUT1
